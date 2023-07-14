@@ -7,18 +7,23 @@
     <link rel="stylesheet" href="{% static '/css/reply.css' %}" />
   </head>
   <body>
-    <div id="container">
-      <form method="POST" action="{% url 'qna:write_answer' index=qna.index %}">
-        {% csrf_token %}
-        <div id="qtextBox">{{ qna.question }}</div>
-        <textarea
-          name="answer"
-          value="{{ qna.answer }}"
-          id="content"
-          textholder="답변을 입력해주세요"
-        ></textarea>
-        <button type="submit" id="saveBtn">완료하기</button>
-      </form>
+    <div id="bigbg">
+      <div id="container">
+        <form
+          method="POST"
+          action="{% url 'qna:write_answer' index=qna.index %}"
+        >
+          {% csrf_token %}
+          <div id="qtextBox">{{ qna.question }}</div>
+          <textarea
+            name="answer"
+            value="{{ qna.answer }}"
+            id="content"
+            textholder="답변을 입력해주세요"
+          ></textarea>
+          <button type="submit" id="saveBtn">완료하기</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
